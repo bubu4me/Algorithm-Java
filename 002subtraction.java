@@ -1,14 +1,14 @@
 import java.util.Scanner;
 public class sub
 {
-	//½«charĞÍ×ªÎªintÀàĞÍ
+	//å°†charå‹è½¬ä¸ºintç±»å‹
 	public static int charToInt(char a)
 	{
 		int b=(int)a-(int)'0';
 		return b;
 	}
 	
-	//·´×ª×Ö·û´®
+	//åè½¬å­—ç¬¦ä¸²
 	public static StringBuilder reverseString(String a)
 	{
 		StringBuilder builder=new StringBuilder(a);
@@ -16,35 +16,35 @@ public class sub
 		return builder;
 	}
 	
-	//¼ÙÉènum2>num1,¼´num2¼õÈ¥num1£»
+	//å‡è®¾num2>num1,å³num2å‡å»num1ï¼›
 	public static String subtract(String num1, String num2)
 	{
-		//É¾³ıÇ°µ¼0;
+		//åˆ é™¤å‰å¯¼0;
 		num1=num1.replaceFirst("^0*", "");
 		num2=num2.replaceFirst("^0*", "");
 		
-		//·´×ª×Ö·û´®
+		//åè½¬å­—ç¬¦ä¸²
 		num1=reverseString(num1).toString();
 		num2=reverseString(num2).toString();
 		
-		int carry=0;   //ÏòÇ°Ò»Î»ÊıÈ¡10£¬¸³³õÖµÎª0£»
+		int carry=0;   //å‘å‰ä¸€ä½æ•°å–10ï¼Œèµ‹åˆå€¼ä¸º0ï¼›
 		
-		//resÎª×îºó½á¹û
+		//resä¸ºæœ€åç»“æœ
 		StringBuilder res=new StringBuilder();
 		res.reverse();
 		
-		//»ñÈ¡Î»Êı
+		//è·å–ä½æ•°
 		int N1=num1.length();
 		int N2=num2.length();
 		
-		//Î»ÊıÉÏµÄÖµÏà¼õ
+		//ä½æ•°ä¸Šçš„å€¼ç›¸å‡
 		for(int i=0;i<N1;++i)
 		{
-			//»ñÈ¡Î»ÊıÉÏµÄÖµ
+			//è·å–ä½æ•°ä¸Šçš„å€¼
 			int i1=charToInt(num1.charAt(i));
 			int i2=charToInt(num2.charAt(i));
 			int r=i2-carry-i1;
-			//ÅĞ¶Ïi1ºÍi2µÄ´óĞ¡
+			//åˆ¤æ–­i1å’Œi2çš„å¤§å°
 			if(r<0)
 			{
 				carry=1;
@@ -66,36 +66,36 @@ public class sub
 			res.append(r);
 		}
 		
-		//ÅĞ¶ÏÁ½¸öÊı×ÖÊÇ·ñÈ«Îª0£»
+		//åˆ¤æ–­ä¸¤ä¸ªæ•°å­—æ˜¯å¦å…¨ä¸º0ï¼›
 		if(res.toString().length()<=0)
 			return "0";
 		
-		//num1=num2Ê±É¾³ı½á¹ûµÄÇ°ÖÃ0
+		//num1=num2æ—¶åˆ é™¤ç»“æœçš„å‰ç½®0
 		if(num1.equals(num2)==true)
 		 {
 			return "0";
 		 }
 		
-		//É¾³ı½á¹ûÖĞµÄÇ°ÖÃ0
-		//ÀıÈç111£¬22µÄ½á¹ûµÃ089£¬ÊÇ²»·ûºÏµÄ
+		//åˆ é™¤ç»“æœä¸­çš„å‰ç½®0
+		//ä¾‹å¦‚111ï¼Œ22çš„ç»“æœå¾—089ï¼Œæ˜¯ä¸ç¬¦åˆçš„
 		String result=res.reverse().toString();
 		result=result.replaceFirst("^0*", "");
 		return result;
 	}
 	
-	//ÅĞ¶Ïnum1Óënum2µÄ´óĞ¡£¬¼ÙÉènum2>num1
+	//åˆ¤æ–­num1ä¸num2çš„å¤§å°ï¼Œå‡è®¾num2>num1
 	public static boolean strCompare(String num1,String num2)
 	{
-		//É¾³ıÇ°µ¼0;·ñÔò³öÏÖ½á¹ûÒòÇ°µ¼0¶ø¼ÆËã´íÎóµÄÇé¿ö
-		//ÀıÈç000111£¬999µÄ½á¹ûµÃ112£¬ÊÇ´íÎóµÄ£»
+		//åˆ é™¤å‰å¯¼0;å¦åˆ™å‡ºç°ç»“æœå› å‰å¯¼0è€Œè®¡ç®—é”™è¯¯çš„æƒ…å†µ
+		//ä¾‹å¦‚000111ï¼Œ999çš„ç»“æœå¾—112ï¼Œæ˜¯é”™è¯¯çš„ï¼›
 		num1=num1.replaceFirst("^0*", "");
 		num2=num2.replaceFirst("^0*", "");
 		
-		//»ñÈ¡Î»Êı;
+		//è·å–ä½æ•°;
 		int N1=num1.length();
 		int N2=num2.length();
 		
-		//ÒÔÏÂ¶¼ÊÇÅĞ¶ÏxºÍyÊıÖµµÄ´óĞ¡£¬ÒÔÈ·¶¨Êä³öµÄÊÇÕıÊı»¹ÊÇ¸ºÊı
+		//ä»¥ä¸‹éƒ½æ˜¯åˆ¤æ–­xå’Œyæ•°å€¼çš„å¤§å°ï¼Œä»¥ç¡®å®šè¾“å‡ºçš„æ˜¯æ­£æ•°è¿˜æ˜¯è´Ÿæ•°
 		if(N1==N2)
 		{
 			if(num2.compareTo(num1)>=0)
@@ -111,7 +111,7 @@ public class sub
 		else return false;
 	}
 	
-	//·µ»Ø½á¹û,num2>num1
+	//è¿”å›ç»“æœ,num2>num1
 	public static String mySub(String num1, String num2)
 	{
 		
