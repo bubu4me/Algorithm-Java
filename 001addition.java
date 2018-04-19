@@ -1,5 +1,5 @@
 /* 
- * ´óÊı¼Ó·¨£¬ÇóÉÏ°ÙÎ»ÊıµÄ¼Ó·¨
+ * å¤§æ•°åŠ æ³•ï¼Œæ±‚ä¸Šç™¾ä½æ•°çš„åŠ æ³•
  */
 
 package Add;
@@ -7,29 +7,29 @@ import java.util.Scanner;
 public class add_final 
 {
 	
-	//¼ÙÉènum2.length>num1.length;
+	//å‡è®¾num2.length>num1.length;
 	public static String addition(String num1,String num2) 
 	{
 				
-    	//·´×ª×Ö·û´®
+    	//åè½¬å­—ç¬¦ä¸²
     	num1=reverseString(num1).toString();
     	num2=reverseString(num2).toString();    	
     	
-    	//res±íÊ¾×îºó½á¹û
+    	//resè¡¨ç¤ºæœ€åç»“æœ
     	StringBuilder res = new StringBuilder();
     	res.reverse();
     	
-    	int carry=0;  //carry±íÊ¾½øÎ»£»
+    	int carry=0;  //carryè¡¨ç¤ºè¿›ä½ï¼›
     	
-        //»ñÈ¡Á½¸öÊıµÄÎ»Êı£»
+        //è·å–ä¸¤ä¸ªæ•°çš„ä½æ•°ï¼›
         int N1=num1.length();
         int N2=num2.length();
         
-        //iÎªÑ­»·±äÁ¿
+        //iä¸ºå¾ªç¯å˜é‡
         for(int i=0;i<N1;++i)
         {
         	        	
-        	//ÀÏÊ¦µÄ·½·¨
+        	//è€å¸ˆçš„æ–¹æ³•
         	int i1=charToInt(num1.charAt(i));
         	int i2=charToInt(num2.charAt(i));
         	int r=i1+i2+carry;
@@ -63,14 +63,14 @@ public class add_final
         return res.reverse().toString();
 	}
 	
-	//char×ªintÀàĞÍ
+	//charè½¬intç±»å‹
 	public static int charToInt(char a)
 	{
 		int b=(int)a-(int)'0';
 		return b;
 	}
 	
-	//·´×ª×Ö·û´®
+	//åè½¬å­—ç¬¦ä¸²
 	public static StringBuilder reverseString(String a)
 	{
 		StringBuilder builder=new StringBuilder(a);
@@ -80,11 +80,11 @@ public class add_final
 	
 	public static String myAdd(String x, String y) 
 	{
-		// »ñÈ¡Î»Êı
+		// è·å–ä½æ•°
 		int x_len = x.length();
 		int y_len = y.length();
 
-		// ÒÔÏÂ¶¼ÊÇÅĞ¶ÏxºÍyÊıÖµµÄ´óĞ¡
+		// ä»¥ä¸‹éƒ½æ˜¯åˆ¤æ–­xå’Œyæ•°å€¼çš„å¤§å°
 		if (x_len == y_len) 
 		{
 			if (x.compareTo(y) > 0) 
@@ -108,7 +108,7 @@ public class add_final
 		String x=sc.nextLine();
 		String y=sc.nextLine();
 		
-		//È¥µôÇ°µ¼0
+		//å»æ‰å‰å¯¼0
 		x=x.replaceFirst("^0*", "");
 		y=y.replaceFirst("^0*", "");
 		System.out.println(myAdd(x,y));
