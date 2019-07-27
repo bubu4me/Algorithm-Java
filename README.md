@@ -1,2 +1,2 @@
 # JavaForSdmda-openjudge
-Solutions to problems in Java on sdmda.openjudge.cn
+Java实现的算法集合
